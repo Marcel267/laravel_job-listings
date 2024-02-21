@@ -2,28 +2,10 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 
-class Listing
+class Listing extends Model
 {
-    public static function all()
-    {
-        for ($i = 1; $i < 11; $i++) {
-            $listings[] = ['id' => $i, 'content' => 'Listing number' . $i];
-        }
-
-        return $listings;
-    }
-
-    public static function find($id)
-    {
-        $listings = self::all();
-
-        foreach ($listings as $listing) {
-            if ($listing['id'] === $id) {
-                return $listing;
-            }
-        }
-
-        return false;
-    }
+    use HasFactory;
 }

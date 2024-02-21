@@ -15,14 +15,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
-Route::get('/listings', function () {
+Route::get('/', function () {
     return view('listings', ['listings' => Listing::all()]);
 });
 
-Route::get('/listing/{id}', function (int $id) {
-    return view('listing', ['listing' => Listing::find($id)]);
+//listing parameter -> Route model binding
+Route::get('/listing/{listing}', function (Listing $listing) {
+
+    return view('listing', ['listing' => $listing]);
 });
