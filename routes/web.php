@@ -15,16 +15,6 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
-Route::get('/', [ListingController::class, 'index']);
-
-//listing parameter -> Route model binding
-Route::get('/listing/{listing}', [ListingController::class, 'show']);
-
 /*
 Common Ressource Routes:
 index - Show all listings
@@ -35,3 +25,8 @@ edit - show form to edit listing
 update - update listing
 destroy - delete listing
 */
+
+Route::get('/', [ListingController::class, 'index']);
+
+//listing parameter -> Route model binding
+Route::get('/listing/{listing}', [ListingController::class, 'show']);
