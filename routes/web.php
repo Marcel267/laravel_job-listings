@@ -26,11 +26,21 @@ update - update listing
 destroy - delete listing
 */
 
+//show all listings
 Route::get('/', [ListingController::class, 'index']);
 
+//show create form
 Route::get('/listings/create', [ListingController::class, 'create']);
 
+//store listing data
 Route::post('/listings', [ListingController::class, 'store']);
 
+//show edit form
+Route::get('/listings/{listing}/edit', [ListingController::class, 'edit']);
+
+//update listing
+Route::put('/listings/{listing}', [ListingController::class, 'update']);
+
+//show single listing
 //listing parameter -> Route model binding
 Route::get('/listings/{listing}', [ListingController::class, 'show']);
